@@ -11,6 +11,7 @@ geopandas = "*"
 topojson = "*"
 geobuf = "*"
 pipenv-to-requirements = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"

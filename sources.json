@@ -1,11 +1,23 @@
 [
     {
         "name": "20190101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012019_g.zip"
+        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012019_g.zip",
+        "divisions": [
+            { "name": "ripartizioni-geografiche", "dirname": "RipGeo01012019_g", "filename": "RipGeo01012019_g_WGS84", "key": "COD_RIP", "fields": ["DEN_RIP"] },
+            { "name": "regioni", "dirname": "Reg01012019_g", "filename": "Reg01012019_g_WGS84", "key": "COD_REG", "fields": ["DEN_REG"], "parents": ["ripartizioni-geografiche"] },
+            { "name": "unita-territoriali-sovracomunali", "dirname": "ProvCM01012019_g", "filename": "ProvCM01012019_g_WGS84", "key": "COD_UTS", "fields": ["DEN_PROV","DEN_CM","DEN_UTS","SIGLA","TIPO_UTS"], "parents": ["regioni","ripartizioni-geografiche"] },
+            { "name": "comuni", "dirname": "Com01012019_g", "filename": "Com01012019_g_WGS84", "key": "PRO_COM", "fields": [], "parents": ["unita-territoriali-sovracomunali","regioni","ripartizioni-geografiche"] }
+        ]
     },
     {
         "name": "20180101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012018_g.zip"
+        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012018_g.zip",
+        "divisions": [
+            { "name": "ripartizioni-geografiche", "dirname": "RipGeo01012018_g", "filename": "RipGeo01012018_g_WGS84", "key": "COD_RIP", "fields": ["DEN_RIP"] },
+            { "name": "regioni", "dirname": "Reg01012018_g", "filename": "Reg01012018_g_WGS84", "key": "COD_REG", "fields": ["DEN_REG"], "parents": ["ripartizioni-geografiche"] },
+            { "name": "unita-territoriali-sovracomunali", "dirname": "ProvCM01012018_g", "filename": "ProvCM01012018_g_WGS84", "key": "COD_PCM", "fields": ["DEN_PROV","DEN_CM","DEN_PCM","SIGLA"], "parents": ["regioni","ripartizioni-geografiche"] },
+            { "name": "comuni", "dirname": "Com01012018_g", "filename": "Com01012018_g_WGS84", "key": "PRO_COM", "fields": [], "parents": ["unita-territoriali-sovracomunali","regioni","ripartizioni-geografiche"] }
+        ]
     },
     {
         "name": "20170101",
