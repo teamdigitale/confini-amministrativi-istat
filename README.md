@@ -12,9 +12,11 @@ Collezione di utilities per facilitare il riuso dei dati ISTAT e ANPR sui confin
 
 ## Contenuto del repository
 
-Nel file `sources.json` ci sono i link a tutti gli shapefile rilasciati da ISTAT dal 2001 elencati in [questa tabella](https://www.istat.it/it/archivio/222527).
+Nel file `sources.json` ci sono i link a tutti gli shapefile rilasciati da ISTAT dal 2001 elencati in [questa tabella](https://www.istat.it/it/archivio/222527)
+e il link all'[archivio dei comuni di ANPR](https://www.anpr.interno.it/portale/anpr-archivio-comuni.csv).
 
 Lo script `main.py` scarica gli archivi zip dal sito ISTAT, li decomprime e li elabora in cartelle nominate con la data di rilascio: `YYYYMMDD/`.
+Scarica anche il file di ANPR e lo arricchisce con i dati ISTAT contenuti negli shapefile.
 
 Al momento sono supportati i seguenti formati di output:
 
@@ -23,6 +25,8 @@ Al momento sono supportati i seguenti formati di output:
 * [Geojson](https://it.wikipedia.org/wiki/GeoJSON) nella cartella `geojson/`
 * [Topojson](https://it.wikipedia.org/wiki/GeoJSON#TopoJSON) nella cartella `topojson/`
 * [Geobuf](https://github.com/pygeobuf/pygeobuf) nella cartella `geobuf/`
+
+Il file di ANPR è quello originale arricchito delle denominazioni e dell'indicazione degli shapefile in cui i comuni sono presenti.
 
 > Avvertenza: al momento le cartelle e i file di output risultanti dall'esecuzione dell'applicazione **non** sono inseriti nel repository.
 
@@ -37,7 +41,9 @@ Con [pipenv](https://pipenv.kennethreitz.org/en/latest/) è sufficiente entrare 
 
 Infine, per eseguire l'applicazione: `python main.py`.
 
-> Avvertenza: al momento viene processato solo il primo elemento di `sources.json` (lo shapefile più recente disponibile).
+> Avvertenza: al momento vengono processati solo i primi due elementi di `sources.json` (gli shapefile istat più recenti disponibili).
+
+> Avvertenza: al momento la conversione in topojson è commentata perché fornisce warning su alcuni poligoni
 
 > Avvertenza: al momento la conversione in geobuf è commentata perché va in errore
 
