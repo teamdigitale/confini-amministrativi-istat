@@ -1,90 +1,96 @@
-[
-    {
-        "name": "20190101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012019_g.zip",
-        "divisions": [
-            { "name": "ripartizioni-geografiche", "dirname": "RipGeo01012019_g", "filename": "RipGeo01012019_g_WGS84", "key": "COD_RIP", "fields": ["DEN_RIP"] },
-            { "name": "regioni", "dirname": "Reg01012019_g", "filename": "Reg01012019_g_WGS84", "key": "COD_REG", "fields": ["DEN_REG"], "parents": ["ripartizioni-geografiche"] },
-            { "name": "unita-territoriali-sovracomunali", "dirname": "ProvCM01012019_g", "filename": "ProvCM01012019_g_WGS84", "key": "COD_UTS", "fields": ["DEN_PROV","DEN_CM","DEN_UTS","SIGLA","TIPO_UTS"], "parents": ["regioni","ripartizioni-geografiche"] },
-            { "name": "comuni", "dirname": "Com01012019_g", "filename": "Com01012019_g_WGS84", "key": "PRO_COM", "fields": [], "parents": ["unita-territoriali-sovracomunali","regioni","ripartizioni-geografiche"] }
-        ]
+{
+    "anpr": {
+        "url": "https://www.anpr.interno.it/portale/anpr-archivio-comuni.csv",
+        "division": { "name": "comuni", "key": "CODISTAT" }
     },
-    {
-        "name": "20180101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012018_g.zip",
-        "divisions": [
-            { "name": "ripartizioni-geografiche", "dirname": "RipGeo01012018_g", "filename": "RipGeo01012018_g_WGS84", "key": "COD_RIP", "fields": ["DEN_RIP"] },
-            { "name": "regioni", "dirname": "Reg01012018_g", "filename": "Reg01012018_g_WGS84", "key": "COD_REG", "fields": ["DEN_REG"], "parents": ["ripartizioni-geografiche"] },
-            { "name": "unita-territoriali-sovracomunali", "dirname": "ProvCM01012018_g", "filename": "ProvCM01012018_g_WGS84", "key": "COD_PCM", "fields": ["DEN_PROV","DEN_CM","DEN_PCM","SIGLA"], "parents": ["regioni","ripartizioni-geografiche"] },
-            { "name": "comuni", "dirname": "Com01012018_g", "filename": "Com01012018_g_WGS84", "key": "PRO_COM", "fields": [], "parents": ["unita-territoriali-sovracomunali","regioni","ripartizioni-geografiche"] }
-        ]
-    },
-    {
-        "name": "20170101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012017_g.zip"
-    },
-    {
-        "name": "20160101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012016_g.zip"
-    },
-    {
-        "name": "20150101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012015_g.zip"
-    },
-    {
-        "name": "20140101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012014_g.zip"
-    },
-    {
-        "name": "20130101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012013_g.zip"
-    },
-    {
-        "name": "20120101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012012_g.zip"
-    },
-    {
-        "name": "20111009",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti2011_g.zip"
-    },
-    {
-        "name": "20100101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012010_g.zip"
-    },
-    {
-        "name": "20090101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012009_g.zip"
-    },
-    {
-        "name": "20080101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012008_g.zip"
-    },
-    {
-        "name": "20070101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012007_g.zip"
-    },
-    {
-        "name": "20060101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012006_g.zip"
-    },
-    {
-        "name": "20050101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012005_g.zip"
-    },
-    {
-        "name": "20040101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012004_g.zip"
-    },
-    {
-        "name": "20030101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012003_g.zip"
-    },
-    {
-        "name": "20020101",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012002_g.zip"
-    },
-    {
-        "name": "20011021",
-        "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti2001_g.zip"
-    }
-]
+    "istat": [
+        {
+            "name": "20190101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012019_g.zip",
+            "divisions": [
+                { "name": "ripartizioni-geografiche", "dirname": "RipGeo01012019_g", "filename": "RipGeo01012019_g_WGS84", "key": "COD_RIP", "fields": ["DEN_RIP"] },
+                { "name": "regioni", "dirname": "Reg01012019_g", "filename": "Reg01012019_g_WGS84", "key": "COD_REG", "fields": ["DEN_REG"], "parents": ["ripartizioni-geografiche"] },
+                { "name": "unita-territoriali-sovracomunali", "dirname": "ProvCM01012019_g", "filename": "ProvCM01012019_g_WGS84", "key": "COD_UTS", "fields": ["DEN_PROV","DEN_CM","DEN_UTS","SIGLA","TIPO_UTS"], "parents": ["regioni","ripartizioni-geografiche"] },
+                { "name": "comuni", "dirname": "Com01012019_g", "filename": "Com01012019_g_WGS84", "key": "PRO_COM", "fields": ["DEN_RIP","DEN_REG","DEN_PROV","DEN_CM","DEN_UTS","TIPO_UTS","COMUNE","COMUNE_A","CC_UTS"], "parents": ["unita-territoriali-sovracomunali","regioni","ripartizioni-geografiche"] }
+            ]
+        },
+        {
+            "name": "20180101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012018_g.zip",
+            "divisions": [
+                { "name": "ripartizioni-geografiche", "dirname": "RipGeo01012018_g", "filename": "RipGeo01012018_g_WGS84", "key": "COD_RIP", "fields": ["DEN_RIP"] },
+                { "name": "regioni", "dirname": "Reg01012018_g", "filename": "Reg01012018_g_WGS84", "key": "COD_REG", "fields": ["DEN_REG"], "parents": ["ripartizioni-geografiche"] },
+                { "name": "unita-territoriali-sovracomunali", "dirname": "ProvCM01012018_g", "filename": "ProvCM01012018_g_WGS84", "key": "COD_PCM", "fields": ["DEN_PROV","DEN_CM","DEN_PCM","SIGLA"], "parents": ["regioni","ripartizioni-geografiche"] },
+                { "name": "comuni", "dirname": "Com01012018_g", "filename": "Com01012018_g_WGS84", "key": "PRO_COM", "fields": ["DEN_RIP","DEN_REG","DEN_PROV","DEN_CM","DEN_PCM"], "parents": ["unita-territoriali-sovracomunali","regioni","ripartizioni-geografiche"] }
+            ]
+        },
+        {
+            "name": "20170101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012017_g.zip"
+        },
+        {
+            "name": "20160101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012016_g.zip"
+        },
+        {
+            "name": "20150101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012015_g.zip"
+        },
+        {
+            "name": "20140101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012014_g.zip"
+        },
+        {
+            "name": "20130101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012013_g.zip"
+        },
+        {
+            "name": "20120101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012012_g.zip"
+        },
+        {
+            "name": "20111009",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti2011_g.zip"
+        },
+        {
+            "name": "20100101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012010_g.zip"
+        },
+        {
+            "name": "20090101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012009_g.zip"
+        },
+        {
+            "name": "20080101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012008_g.zip"
+        },
+        {
+            "name": "20070101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012007_g.zip"
+        },
+        {
+            "name": "20060101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012006_g.zip"
+        },
+        {
+            "name": "20050101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012005_g.zip"
+        },
+        {
+            "name": "20040101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012004_g.zip"
+        },
+        {
+            "name": "20030101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012003_g.zip"
+        },
+        {
+            "name": "20020101",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti01012002_g.zip"
+        },
+        {
+            "name": "20011021",
+            "url": "http://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/Limiti2001_g.zip"
+        }
+    ]
+}
