@@ -28,7 +28,7 @@ Al momento sono supportati i seguenti formati di output:
 
 Il file di ANPR è quello originale arricchito delle denominazioni e dell'indicazione degli shapefile in cui i comuni sono presenti.
 
-> Avvertenza: al momento le cartelle e i file di output risultanti dall'esecuzione dell'applicazione **non** sono inseriti nel repository.
+> Avvertenza: al momento è inserita nel repository solo la cartella di output risultante dall'esecuzione dell'applicazione relativa al file ISTAT più recente.
 
 ## Come eseguire l'applicazione
 
