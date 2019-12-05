@@ -75,7 +75,9 @@ for source in sources["istat"][0:2]:
                 ## Carico il CSV come dataframe
                 jdf = pd.read_csv(Path(output_csv, parent["name"], parent["name"]+".csv"))
                 ## Faccio il join selezionando le colonne che mi interessano
-                df = pd.merge(df, jdf[[parent["key"]] + parent["fields"]], on=parent["key"])
+                df = pd.merge(df, jdf[[parent["key"]] + parent["fields"]], on=parent["key"], how="left")
+            ## Sostituisco tutti i NaN con stringhe vuote
+            df.fillna('', inplace=True)
             ## Salvo il file arricchito
             df.to_csv(csv_filename, index = False, columns = [col for col in df.columns if "shape_" not in col.lower()])
 
@@ -166,13 +168,16 @@ with urlopen(sources["anpr"]["url"]) as res:
                     ["GEO_%s" % source["name"]]
                 ],
                 left_on=sources["anpr"]["division"]["key"],
-                right_on="%s_%s" % (division["key"],source["name"])
+                right_on="%s_%s" % (division["key"],source["name"]),
+                how="left"
             )
             ## Elimino tutte le colonne duplicate (identici valori su tutte le righe)
             df = df.loc[:,~df.T.duplicated(keep='first')]
 
+    ## Sostituisco tutti i NaN con stringhe vuote
+    df.fillna('', inplace=True)
     ## Concateno tutte le colonne GEO_YYYYMMDD in un'unica colonna GEO
-    df["GEO"] = df[[col for col in df.columns if "GEO_" in col]].apply(lambda x: ','.join(x), axis=1)
+    df["GEO"] = df[[col for col in df.columns if "GEO_" in col]].apply(lambda l: ','.join([str(x) for x in l if x]), axis=1)
     ## Elimino le colonne temporanee GEO_YYYYMMDD
     df.drop(columns=[col for col in df.columns if "GEO_" in col], inplace=True)
     ## Elimino i suffissi _YYYYMMDD da tutte le colonne

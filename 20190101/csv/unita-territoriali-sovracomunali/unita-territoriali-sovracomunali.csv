@@ -1,61 +1,28 @@
 COD_RIP,COD_REG,COD_PROV,COD_CM,COD_UTS,DEN_PROV,DEN_CM,DEN_UTS,SIGLA,TIPO_UTS,DEN_REG,DEN_RIP
 2,6,93,0,93,Pordenone,-,Pordenone,PN,Unità non amministrativa,Friuli Venezia Giulia,Nord-Est
-2,6,30,0,30,Udine,-,Udine,UD,Unità non amministrativa,Friuli Venezia Giulia,Nord-Est
-2,6,31,0,31,Gorizia,-,Gorizia,GO,Unità non amministrativa,Friuli Venezia Giulia,Nord-Est
-2,6,32,0,32,Trieste,-,Trieste,TS,Unità non amministrativa,Friuli Venezia Giulia,Nord-Est
-2,8,99,0,99,Rimini,-,Rimini,RN,Provincia,Emilia-Romagna,Nord-Est
-2,8,33,0,33,Piacenza,-,Piacenza,PC,Provincia,Emilia-Romagna,Nord-Est
-2,8,34,0,34,Parma,-,Parma,PR,Provincia,Emilia-Romagna,Nord-Est
-2,8,35,0,35,Reggio nell'Emilia,-,Reggio nell'Emilia,RE,Provincia,Emilia-Romagna,Nord-Est
-2,8,36,0,36,Modena,-,Modena,MO,Provincia,Emilia-Romagna,Nord-Est
-2,8,37,237,237,-,Bologna,Bologna,BO,Citta metropolitana,Emilia-Romagna,Nord-Est
-2,8,38,0,38,Ferrara,-,Ferrara,FE,Provincia,Emilia-Romagna,Nord-Est
-2,8,39,0,39,Ravenna,-,Ravenna,RA,Provincia,Emilia-Romagna,Nord-Est
-2,8,40,0,40,Forli'-Cesena,-,Forli'-Cesena,FC,Provincia,Emilia-Romagna,Nord-Est
-2,4,21,0,21,Bolzano,-,Bolzano,BZ,Provincia autonoma,Trentino-Alto Adige,Nord-Est
-2,4,22,0,22,Trento,-,Trento,TN,Provincia autonoma,Trentino-Alto Adige,Nord-Est
-2,5,23,0,23,Verona,-,Verona,VR,Provincia,Veneto,Nord-Est
-2,5,24,0,24,Vicenza,-,Vicenza,VI,Provincia,Veneto,Nord-Est
-2,5,25,0,25,Belluno,-,Belluno,BL,Provincia,Veneto,Nord-Est
-2,5,26,0,26,Treviso,-,Treviso,TV,Provincia,Veneto,Nord-Est
-2,5,27,227,227,-,Venezia,Venezia,VE,Citta metropolitana,Veneto,Nord-Est
-2,5,28,0,28,Padova,-,Padova,PD,Provincia,Veneto,Nord-Est
-2,5,29,0,29,Rovigo,-,Rovigo,RO,Provincia,Veneto,Nord-Est
 4,14,94,0,94,Isernia,-,Isernia,IS,Provincia,Molise,Sud
-4,14,70,0,70,Campobasso,-,Campobasso,CB,Provincia,Molise,Sud
+1,1,96,0,96,Biella,-,Biella,BI,Provincia,Piemonte,Nord-Ovest
+1,3,97,0,97,Lecco,-,Lecco,LC,Provincia,Lombardia,Nord-Ovest
+1,3,98,0,98,Lodi,-,Lodi,LO,Provincia,Lombardia,Nord-Ovest
+2,8,99,0,99,Rimini,-,Rimini,RN,Provincia,Emilia-Romagna,Nord-Est
+3,9,100,0,100,Prato,-,Prato,PO,Provincia,Toscana,Centro
 4,18,101,0,101,Crotone,-,Crotone,KR,Provincia,Calabria,Sud
 4,18,102,0,102,Vibo Valentia,-,Vibo Valentia,VV,Provincia,Calabria,Sud
-4,18,78,0,78,Cosenza,-,Cosenza,CS,Provincia,Calabria,Sud
-4,18,79,0,79,Catanzaro,-,Catanzaro,CZ,Provincia,Calabria,Sud
-4,18,80,280,280,-,Reggio di Calabria,Reggio di Calabria,RC,Citta metropolitana,Calabria,Sud
-4,16,110,0,110,Barletta-Andria-Trani,-,Barletta-Andria-Trani,BT,Provincia,Puglia,Sud
-4,16,71,0,71,Foggia,-,Foggia,FG,Provincia,Puglia,Sud
-4,16,72,272,272,-,Bari,Bari,BA,Citta metropolitana,Puglia,Sud
-4,16,73,0,73,Taranto,-,Taranto,TA,Provincia,Puglia,Sud
-4,16,74,0,74,Brindisi,-,Brindisi,BR,Provincia,Puglia,Sud
-4,16,75,0,75,Lecce,-,Lecce,LE,Provincia,Puglia,Sud
-4,15,61,0,61,Caserta,-,Caserta,CE,Provincia,Campania,Sud
-4,15,62,0,62,Benevento,-,Benevento,BN,Provincia,Campania,Sud
-4,15,63,263,263,-,Napoli,Napoli,,Citta metropolitana,Campania,Sud
-4,15,64,0,64,Avellino,-,Avellino,AV,Provincia,Campania,Sud
-4,15,65,0,65,Salerno,-,Salerno,SA,Provincia,Campania,Sud
-4,13,66,0,66,L'Aquila,-,L'Aquila,AQ,Provincia,Abruzzo,Sud
-4,13,67,0,67,Teramo,-,Teramo,TE,Provincia,Abruzzo,Sud
-4,13,68,0,68,Pescara,-,Pescara,PE,Provincia,Abruzzo,Sud
-4,13,69,0,69,Chieti,-,Chieti,CH,Provincia,Abruzzo,Sud
-4,17,76,0,76,Potenza,-,Potenza,PZ,Provincia,Basilicata,Sud
-4,17,77,0,77,Matera,-,Matera,MT,Provincia,Basilicata,Sud
-1,1,96,0,96,Biella,-,Biella,BI,Provincia,Piemonte,Nord-Ovest
 1,1,103,0,103,Verbano-Cusio-Ossola,-,Verbano-Cusio-Ossola,VB,Provincia,Piemonte,Nord-Ovest
+1,3,108,0,108,Monza e della Brianza,-,Monza e della Brianza,MB,Provincia,Lombardia,Nord-Ovest
+3,11,109,0,109,Fermo,-,Fermo,FM,Provincia,Marche,Centro
+4,16,110,0,110,Barletta-Andria-Trani,-,Barletta-Andria-Trani,BT,Provincia,Puglia,Sud
 1,1,1,201,201,-,Torino,Torino,TO,Citta metropolitana,Piemonte,Nord-Ovest
 1,1,2,0,2,Vercelli,-,Vercelli,VC,Provincia,Piemonte,Nord-Ovest
 1,1,3,0,3,Novara,-,Novara,NO,Provincia,Piemonte,Nord-Ovest
 1,1,4,0,4,Cuneo,-,Cuneo,CN,Provincia,Piemonte,Nord-Ovest
 1,1,5,0,5,Asti,-,Asti,AT,Provincia,Piemonte,Nord-Ovest
 1,1,6,0,6,Alessandria,-,Alessandria,AL,Provincia,Piemonte,Nord-Ovest
-1,3,97,0,97,Lecco,-,Lecco,LC,Provincia,Lombardia,Nord-Ovest
-1,3,98,0,98,Lodi,-,Lodi,LO,Provincia,Lombardia,Nord-Ovest
-1,3,108,0,108,Monza e della Brianza,-,Monza e della Brianza,MB,Provincia,Lombardia,Nord-Ovest
+1,2,7,0,7,Aosta,-,Aosta,AO,Provincia,Valle d'Aosta,Nord-Ovest
+1,7,8,0,8,Imperia,-,Imperia,IM,Provincia,Liguria,Nord-Ovest
+1,7,9,0,9,Savona,-,Savona,SV,Provincia,Liguria,Nord-Ovest
+1,7,10,210,210,-,Genova,Genova,GE,Provincia,Liguria,Nord-Ovest
+1,7,11,0,11,La Spezia,-,La Spezia,SP,Provincia,Liguria,Nord-Ovest
 1,3,12,0,12,Varese,-,Varese,VA,Provincia,Lombardia,Nord-Ovest
 1,3,13,0,13,Como,-,Como,CO,Provincia,Lombardia,Nord-Ovest
 1,3,14,0,14,Sondrio,-,Sondrio,SO,Provincia,Lombardia,Nord-Ovest
@@ -65,12 +32,30 @@ COD_RIP,COD_REG,COD_PROV,COD_CM,COD_UTS,DEN_PROV,DEN_CM,DEN_UTS,SIGLA,TIPO_UTS,D
 1,3,18,0,18,Pavia,-,Pavia,PV,Provincia,Lombardia,Nord-Ovest
 1,3,19,0,19,Cremona,-,Cremona,CR,Provincia,Lombardia,Nord-Ovest
 1,3,20,0,20,Mantova,-,Mantova,MN,Provincia,Lombardia,Nord-Ovest
-1,2,7,0,7,Aosta,-,Aosta,AO,Provincia,Valle d'Aosta,Nord-Ovest
-1,7,8,0,8,Imperia,-,Imperia,IM,Provincia,Liguria,Nord-Ovest
-1,7,9,0,9,Savona,-,Savona,SV,Provincia,Liguria,Nord-Ovest
-1,7,10,210,210,-,Genova,Genova,GE,Provincia,Liguria,Nord-Ovest
-1,7,11,0,11,La Spezia,-,La Spezia,SP,Provincia,Liguria,Nord-Ovest
-3,9,100,0,100,Prato,-,Prato,PO,Provincia,Toscana,Centro
+2,4,21,0,21,Bolzano,-,Bolzano,BZ,Provincia autonoma,Trentino-Alto Adige,Nord-Est
+2,4,22,0,22,Trento,-,Trento,TN,Provincia autonoma,Trentino-Alto Adige,Nord-Est
+2,5,23,0,23,Verona,-,Verona,VR,Provincia,Veneto,Nord-Est
+2,5,24,0,24,Vicenza,-,Vicenza,VI,Provincia,Veneto,Nord-Est
+2,5,25,0,25,Belluno,-,Belluno,BL,Provincia,Veneto,Nord-Est
+2,5,26,0,26,Treviso,-,Treviso,TV,Provincia,Veneto,Nord-Est
+2,5,27,227,227,-,Venezia,Venezia,VE,Citta metropolitana,Veneto,Nord-Est
+2,5,28,0,28,Padova,-,Padova,PD,Provincia,Veneto,Nord-Est
+2,5,29,0,29,Rovigo,-,Rovigo,RO,Provincia,Veneto,Nord-Est
+2,6,30,0,30,Udine,-,Udine,UD,Unità non amministrativa,Friuli Venezia Giulia,Nord-Est
+2,6,31,0,31,Gorizia,-,Gorizia,GO,Unità non amministrativa,Friuli Venezia Giulia,Nord-Est
+2,6,32,0,32,Trieste,-,Trieste,TS,Unità non amministrativa,Friuli Venezia Giulia,Nord-Est
+2,8,33,0,33,Piacenza,-,Piacenza,PC,Provincia,Emilia-Romagna,Nord-Est
+2,8,34,0,34,Parma,-,Parma,PR,Provincia,Emilia-Romagna,Nord-Est
+2,8,35,0,35,Reggio nell'Emilia,-,Reggio nell'Emilia,RE,Provincia,Emilia-Romagna,Nord-Est
+2,8,36,0,36,Modena,-,Modena,MO,Provincia,Emilia-Romagna,Nord-Est
+2,8,37,237,237,-,Bologna,Bologna,BO,Citta metropolitana,Emilia-Romagna,Nord-Est
+2,8,38,0,38,Ferrara,-,Ferrara,FE,Provincia,Emilia-Romagna,Nord-Est
+2,8,39,0,39,Ravenna,-,Ravenna,RA,Provincia,Emilia-Romagna,Nord-Est
+2,8,40,0,40,Forli'-Cesena,-,Forli'-Cesena,FC,Provincia,Emilia-Romagna,Nord-Est
+3,11,41,0,41,Pesaro e Urbino,-,Pesaro e Urbino,PU,Provincia,Marche,Centro
+3,11,42,0,42,Ancona,-,Ancona,AN,Provincia,Marche,Centro
+3,11,43,0,43,Macerata,-,Macerata,MC,Provincia,Marche,Centro
+3,11,44,0,44,Ascoli Piceno,-,Ascoli Piceno,AP,Provincia,Marche,Centro
 3,9,45,0,45,Massa Carrara,-,Massa Carrara,MS,Provincia,Toscana,Centro
 3,9,46,0,46,Lucca,-,Lucca,LU,Provincia,Toscana,Centro
 3,9,47,0,47,Pistoia,-,Pistoia,PT,Provincia,Toscana,Centro
@@ -80,11 +65,6 @@ COD_RIP,COD_REG,COD_PROV,COD_CM,COD_UTS,DEN_PROV,DEN_CM,DEN_UTS,SIGLA,TIPO_UTS,D
 3,9,51,0,51,Arezzo,-,Arezzo,AR,Provincia,Toscana,Centro
 3,9,52,0,52,Siena,-,Siena,SI,Provincia,Toscana,Centro
 3,9,53,0,53,Grosseto,-,Grosseto,GR,Provincia,Toscana,Centro
-3,11,109,0,109,Fermo,-,Fermo,FM,Provincia,Marche,Centro
-3,11,41,0,41,Pesaro e Urbino,-,Pesaro e Urbino,PU,Provincia,Marche,Centro
-3,11,42,0,42,Ancona,-,Ancona,AN,Provincia,Marche,Centro
-3,11,43,0,43,Macerata,-,Macerata,MC,Provincia,Marche,Centro
-3,11,44,0,44,Ascoli Piceno,-,Ascoli Piceno,AP,Provincia,Marche,Centro
 3,10,54,0,54,Perugia,-,Perugia,PG,Provincia,Umbria,Centro
 3,10,55,0,55,Terni,-,Terni,TR,Provincia,Umbria,Centro
 3,12,56,0,56,Viterbo,-,Viterbo,VT,Provincia,Lazio,Centro
@@ -92,6 +72,26 @@ COD_RIP,COD_REG,COD_PROV,COD_CM,COD_UTS,DEN_PROV,DEN_CM,DEN_UTS,SIGLA,TIPO_UTS,D
 3,12,58,258,258,-,Roma,Roma,RM,Citta metropolitana,Lazio,Centro
 3,12,59,0,59,Latina,-,Latina,LT,Provincia,Lazio,Centro
 3,12,60,0,60,Frosinone,-,Frosinone,FR,Provincia,Lazio,Centro
+4,15,61,0,61,Caserta,-,Caserta,CE,Provincia,Campania,Sud
+4,15,62,0,62,Benevento,-,Benevento,BN,Provincia,Campania,Sud
+4,15,63,263,263,-,Napoli,Napoli,,Citta metropolitana,Campania,Sud
+4,15,64,0,64,Avellino,-,Avellino,AV,Provincia,Campania,Sud
+4,15,65,0,65,Salerno,-,Salerno,SA,Provincia,Campania,Sud
+4,13,66,0,66,L'Aquila,-,L'Aquila,AQ,Provincia,Abruzzo,Sud
+4,13,67,0,67,Teramo,-,Teramo,TE,Provincia,Abruzzo,Sud
+4,13,68,0,68,Pescara,-,Pescara,PE,Provincia,Abruzzo,Sud
+4,13,69,0,69,Chieti,-,Chieti,CH,Provincia,Abruzzo,Sud
+4,14,70,0,70,Campobasso,-,Campobasso,CB,Provincia,Molise,Sud
+4,16,71,0,71,Foggia,-,Foggia,FG,Provincia,Puglia,Sud
+4,16,72,272,272,-,Bari,Bari,BA,Citta metropolitana,Puglia,Sud
+4,16,73,0,73,Taranto,-,Taranto,TA,Provincia,Puglia,Sud
+4,16,74,0,74,Brindisi,-,Brindisi,BR,Provincia,Puglia,Sud
+4,16,75,0,75,Lecce,-,Lecce,LE,Provincia,Puglia,Sud
+4,17,76,0,76,Potenza,-,Potenza,PZ,Provincia,Basilicata,Sud
+4,17,77,0,77,Matera,-,Matera,MT,Provincia,Basilicata,Sud
+4,18,78,0,78,Cosenza,-,Cosenza,CS,Provincia,Calabria,Sud
+4,18,79,0,79,Catanzaro,-,Catanzaro,CZ,Provincia,Calabria,Sud
+4,18,80,280,280,-,Reggio di Calabria,Reggio di Calabria,RC,Citta metropolitana,Calabria,Sud
 5,19,81,0,81,Trapani,-,Trapani,TP,Libero consorzio di comuni,Sicilia,Isole
 5,19,82,282,282,-,Palermo,Palermo,PA,Citta metropolitana,Sicilia,Isole
 5,19,83,283,283,-,Messina,Messina,ME,Citta metropolitana,Sicilia,Isole

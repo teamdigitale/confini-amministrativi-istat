@@ -2,20 +2,20 @@ COD_RIP,COD_REG,DEN_REG,DEN_RIP
 1,1,Piemonte,Nord-Ovest
 1,2,Valle d'Aosta,Nord-Ovest
 1,3,Lombardia,Nord-Ovest
-1,7,Liguria,Nord-Ovest
 2,4,Trentino-Alto Adige,Nord-Est
 2,5,Veneto,Nord-Est
+1,7,Liguria,Nord-Ovest
 2,6,Friuli Venezia Giulia,Nord-Est
-2,8,Emilia-Romagna,Nord-Est
 4,16,Puglia,Sud
-4,13,Abruzzo,Sud
-4,14,Molise,Sud
-4,15,Campania,Sud
-4,17,Basilicata,Sud
-4,18,Calabria,Sud
+2,8,Emilia-Romagna,Nord-Est
 3,9,Toscana,Centro
 3,10,Umbria,Centro
 3,11,Marche,Centro
+4,13,Abruzzo,Sud
+4,14,Molise,Sud
 3,12,Lazio,Centro
+4,15,Campania,Sud
+4,17,Basilicata,Sud
 5,19,Sicilia,Isole
 5,20,Sardegna,Isole
+4,18,Calabria,Sud
