@@ -23,6 +23,7 @@ Al momento sono supportati i seguenti formati di output:
 * [ESRI shapefile](https://it.wikipedia.org/wiki/Shapefile) nella cartella `shp/` (formato originale)
 * [Comma-separated values](https://it.wikipedia.org/wiki/Comma-separated_values) nella cartella `csv/`
 * [Geojson](https://it.wikipedia.org/wiki/GeoJSON) nella cartella `geojson/`
+* [Geopackage](https://en.wikipedia.org/wiki/GeoPackage) nella cartella `geopkg/`
 * [Topojson](https://it.wikipedia.org/wiki/GeoJSON#TopoJSON) nella cartella `topojson/`
 * [Geobuf](https://github.com/pygeobuf/pygeobuf) nella cartella `geobuf/`
 
