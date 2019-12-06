@@ -69,11 +69,11 @@ for source in sources["istat"][0:2]:
         ## Ciclo su tutti i file CSV
         for csv_filename in output_csv.glob("**/*.csv"):
             ## Carico il CSV come dataframe
-            df = pd.read_csv(csv_filename)
+            df = pd.read_csv(csv_filename, dtype = str)
             ## Per ogni divisione amministrativa superiore a quella corrente
             for parent in (source["divisions"][division_id] for division_id in source["divisions"][csv_filename.stem].get("parents",[])):
                 ## Carico il CSV come dataframe
-                jdf = pd.read_csv(Path(output_csv, parent["name"], parent["name"]+".csv"))
+                jdf = pd.read_csv(Path(output_csv, parent["name"], parent["name"]+".csv"), dtype = str)
                 ## Faccio il join selezionando le colonne che mi interessano
                 df = pd.merge(df, jdf[[parent["key"]] + parent["fields"]], on=parent["key"], how="left")
             ## Sostituisco tutti i NaN con stringhe vuote
@@ -155,7 +155,7 @@ with urlopen(sources["anpr"]["url"]) as res:
     ## Nome del file
     csv_filename = Path(urlparse(sources["anpr"]["url"]).path).name
     ## Carico come dataframe
-    df = pd.read_csv(StringIO(res.read().decode('utf-8')))
+    df = pd.read_csv(StringIO(res.read().decode('utf-8')), dtype = str)
 
     ## Ciclo su tutte le risorse istat
     for source in sources["istat"]:
@@ -166,7 +166,7 @@ with urlopen(sources["anpr"]["url"]) as res:
             print("Processing %s..." % source["name"])
 
             ## Carico i dati ISTAT come dataframe
-            jdf = pd.read_csv(Path(source["name"], "csv", division["name"], division["name"]+".csv"))
+            jdf = pd.read_csv(Path(source["name"], "csv", division["name"], division["name"]+".csv"), dtype = str)
             ## Aggiungo un suffisso a tutte le colonne uguale al nome della fonte ISTAT (_YYYYMMDD)
             jdf.rename(columns={col: "%s_%s" % (col,source["name"]) for col in jdf.columns}, inplace=True)
             ## Aggiungo una colonna GEO_YYYYMMDD con valore costante YYYYMMDD
@@ -194,5 +194,7 @@ with urlopen(sources["anpr"]["url"]) as res:
     df.drop(columns=[col for col in df.columns if "GEO_" in col], inplace=True)
     ## Elimino i suffissi _YYYYMMDD da tutte le colonne
     df.rename(columns={col: re.sub(r"_\d+","",col) for col in df.columns}, inplace=True)
+    ## Aggiungo la colonna di collegamento con OntoPiA
+    df["ONTOPIA"] = df.apply(lambda row: "https://w3id.org/italia/controlled-vocabulary/territorial-classifications/cities/%s-(%s)" % (row["CODISTAT"], row["DATAISTITUZIONE"]), axis=1)
     ## Salvo il file arricchito
     df.to_csv(csv_filename, index=False)
