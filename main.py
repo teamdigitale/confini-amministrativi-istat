@@ -84,11 +84,13 @@ for source in sources["istat"][0:2]:
     # Geojson + Topojson + Geobuf
     ## Cartelle di output
     output_geojson = Path(source["name"], "geojson")
+    output_geopkg = Path(source["name"], "geopkg")
     output_topojson = Path(source["name"], "topojson")
     output_geobuf = Path(source["name"], "geobuf")
 
     ## Le creo se non esistono
     output_geojson.mkdir(parents=True, exist_ok=True)
+    output_geopkg.mkdir(parents=True, exist_ok=True)
     output_topojson.mkdir(parents=True, exist_ok=True)
     output_geobuf.mkdir(parents=True, exist_ok=True)
 
@@ -107,6 +109,16 @@ for source in sources["istat"][0:2]:
             geojson_filename.parent.mkdir(parents=True, exist_ok=True)
             ## Converto in GEOJSON e salvo il file
             gdf.to_file(geojson_filename, driver="GeoJSON")
+
+        # Geopackage - https://www.geopackage.org/
+        ## File di output
+        geopkg_filename = Path(output_geopkg, *shp_filename.parts[2:]).with_suffix('.gpkg')
+        ## Se non esiste...
+        if not geopkg_filename.exists():
+            ## ... ne creo il percorso
+            geopkg_filename.parent.mkdir(parents=True, exist_ok=True)
+            ## Converto in GEOJSON e salvo il file
+            gdf.to_file(geopkg_filename, driver="GPKG")
 
         # Topojson - https://github.com/topojson/topojson
         ## File di output
