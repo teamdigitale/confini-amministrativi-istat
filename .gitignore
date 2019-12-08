@@ -1,5 +1,7 @@
 .vscode/
 .directory
 /**/
+!analisiGeometrie
+!analisiGeometrie/**/
 !20190101/
 !20190101/**/
