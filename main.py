@@ -93,6 +93,24 @@ for source in sources["istat"][0:2]:
             ## Salvo il file arricchito
             df.to_csv(csv_filename, index = False, columns = [col for col in df.columns if "shape_" not in col.lower()])
 
+        # JSON - Javascript Object Notation
+        ## Cartella di output
+        output_json = Path(source["name"], "json")
+        ## Se non esiste...
+        if not output_json.exists():
+            ## ... la crea
+            output_json.mkdir(parents=True, exist_ok=True)
+            ## Ciclo su tutti i file csv
+            for csv_filename in output_csv.glob("**/*.csv"):
+                ## Carico il CSV come dataframe
+                df = pd.read_csv(csv_filename, dtype = str)
+                ## File di output (JSON)
+                json_filename = Path(output_json, *csv_filename.parts[2:]).with_suffix('.json')
+                ## Creo le eventuali sotto cartelle
+                json_filename.parent.mkdir(parents=True, exist_ok=True)
+                ## Salvo il file
+                df.to_json(json_filename, orient="records")
+
     # Geojson + Topojson + Geobuf
     ## Cartelle di output
     output_geojson = Path(source["name"], "geojson")
@@ -165,7 +183,7 @@ print("+++ ANPR +++")
 with urlopen(sources["anpr"]["url"]) as res:
 
     ## Nome del file
-    csv_filename = Path(urlparse(sources["anpr"]["url"]).path).name
+    csv_filename = Path(sources["anpr"]["name"]).with_suffix(".csv")
     ## Carico come dataframe
     df = pd.read_csv(StringIO(res.read().decode('utf-8')), dtype = str)
 

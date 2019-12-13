@@ -9,6 +9,7 @@
         ]
     },
     "anpr": {
+        "name": "archivio-storico-comuni",
         "url": "https://www.anpr.interno.it/portale/anpr-archivio-comuni.csv",
         "division": { "name": "comuni", "key": "CODISTAT" }
     },
