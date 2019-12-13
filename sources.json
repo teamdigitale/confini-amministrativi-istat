@@ -1,4 +1,13 @@
 {
+    "ontopia": {
+        "url": "https://w3id.org/italia/controlled-vocabulary/territorial-classifications",
+        "divisions": [
+            { "name": "ripartizioni-geografiche", "url": "geographical-distribution", "key": "COD_RIP", "digits": 1 },
+            { "name": "regioni", "url": "regions", "key": "COD_REG", "digits": 2 }, 
+            { "name": "unita-territoriali-sovracomunali", "url": "provinces", "key": "COD_PROV", "digits": 3 },
+            { "name": "comuni", "url": "cities" }
+        ]
+    },
     "anpr": {
         "url": "https://www.anpr.interno.it/portale/anpr-archivio-comuni.csv",
         "division": { "name": "comuni", "key": "CODISTAT" }

@@ -1,6 +1,6 @@
-COD_RIP,DEN_RIP
-1,Nord-Ovest
-2,Nord-Est
-3,Centro
-4,Sud
-5,Isole
+COD_RIP,DEN_RIP,ONTOPIA
+1,Nord-Ovest,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/geographical-distribution/1
+2,Nord-Est,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/geographical-distribution/2
+3,Centro,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/geographical-distribution/3
+4,Sud,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/geographical-distribution/4
+5,Isole,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/geographical-distribution/5

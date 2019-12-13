@@ -16,6 +16,8 @@ with open("sources.json") as f:
     for source in sources["istat"]:
         ## Trasforma la lista di divisioni amministrative (comuni, province, ecc.) in un dizionario indicizzato
         source["divisions"] = { division["name"]: division for division in source.get("divisions",[]) }
+    ## Trasforma la lista di divisioni amministrative (comuni, province, ecc.) in un dizionario indicizzato
+    sources["ontopia"]["divisions"] = { division["name"]: division for division in sources["ontopia"].get("divisions",[]) }
 
 # ISTAT - Unità territoriali
 print("+++ ISTAT +++")
@@ -78,6 +80,16 @@ for source in sources["istat"][0:2]:
                 df = pd.merge(df, jdf[[parent["key"]] + parent["fields"]], on=parent["key"], how="left")
             ## Sostituisco tutti i NaN con stringhe vuote
             df.fillna('', inplace=True)
+            ## Aggiungo l'URI di OntoPiA
+            if "key" in sources["ontopia"]["divisions"][csv_filename.stem]:
+                df["ONTOPIA"] = df[sources["ontopia"]["divisions"][csv_filename.stem].get("key")].apply(
+                    lambda x: "{host:s}/{path:s}/{code:0{digits:d}d}".format(
+                        host = sources["ontopia"].get("url",""),
+                        path = sources["ontopia"]["divisions"][csv_filename.stem].get("url",""),
+                        code = int(x),
+                        digits = sources["ontopia"]["divisions"][csv_filename.stem].get("digits",1)
+                    )
+                )
             ## Salvo il file arricchito
             df.to_csv(csv_filename, index = False, columns = [col for col in df.columns if "shape_" not in col.lower()])
 

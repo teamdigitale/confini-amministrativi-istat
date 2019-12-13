@@ -1,21 +1,21 @@
-COD_RIP,COD_REG,DEN_REG,DEN_RIP
-1,1,Piemonte,Nord-Ovest
-1,2,Valle d'Aosta,Nord-Ovest
-1,3,Lombardia,Nord-Ovest
-2,4,Trentino-Alto Adige,Nord-Est
-2,5,Veneto,Nord-Est
-1,7,Liguria,Nord-Ovest
-2,6,Friuli Venezia Giulia,Nord-Est
-4,16,Puglia,Sud
-2,8,Emilia-Romagna,Nord-Est
-3,9,Toscana,Centro
-3,10,Umbria,Centro
-3,11,Marche,Centro
-4,13,Abruzzo,Sud
-4,14,Molise,Sud
-3,12,Lazio,Centro
-4,15,Campania,Sud
-4,17,Basilicata,Sud
-5,19,Sicilia,Isole
-5,20,Sardegna,Isole
-4,18,Calabria,Sud
+COD_RIP,COD_REG,DEN_REG,DEN_RIP,ONTOPIA
+1,1,Piemonte,Nord-Ovest,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/01
+1,2,Valle d'Aosta,Nord-Ovest,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/02
+1,3,Lombardia,Nord-Ovest,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/03
+2,4,Trentino-Alto Adige,Nord-Est,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/04
+2,5,Veneto,Nord-Est,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/05
+1,7,Liguria,Nord-Ovest,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/07
+2,6,Friuli Venezia Giulia,Nord-Est,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/06
+4,16,Puglia,Sud,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/16
+2,8,Emilia-Romagna,Nord-Est,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/08
+3,9,Toscana,Centro,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/09
+3,10,Umbria,Centro,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/10
+3,11,Marche,Centro,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/11
+4,13,Abruzzo,Sud,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/13
+4,14,Molise,Sud,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/14
+3,12,Lazio,Centro,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/12
+4,15,Campania,Sud,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/15
+4,17,Basilicata,Sud,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/17
+5,19,Sicilia,Isole,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/19
+5,20,Sardegna,Isole,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/20
+4,18,Calabria,Sud,https://w3id.org/italia/controlled-vocabulary/territorial-classifications/regions/18
