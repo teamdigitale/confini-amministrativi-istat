@@ -66,6 +66,7 @@ for source in sources["istat"][0:2]:
             csv_filename.parent.mkdir(parents=True, exist_ok=True)
             ## Carico il file dbf
             dbf = Dbf5(dbf_filename)
+            dbf.columns = [c.upper() for c in dbf.columns]
             ## Lo converto in CSV e lo salvo
             dbf.to_csv(csv_filename)
         ## Ciclo su tutti i file CSV
@@ -91,7 +92,7 @@ for source in sources["istat"][0:2]:
                     )
                 )
             ## Salvo il file arricchito
-            df.to_csv(csv_filename, index = False, columns = [col for col in df.columns if "shape_" not in col.lower()])
+            df.to_csv(csv_filename, index = False, columns = [col for col in df.columns if "shape_" not in col.lower() and "pkuid" not in col.lower()])
 
         # JSON - Javascript Object Notation
         ## Cartella di output
