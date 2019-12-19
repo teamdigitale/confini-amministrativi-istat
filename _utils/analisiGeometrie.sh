@@ -32,7 +32,7 @@ if [ "$errori" -gt 0 ]; then
   sqlite3 "$cartellaDati"/analisi.sqlite "SELECT load_extension('mod_spatialite');
   CREATE table regioni_clean AS SELECT * FROM regioni;
   SELECT RecoverGeometryColumn('regioni_clean','geometry',32632,'MULTIPOLYGON','XY');
-  UPDATE regioni_clean SET geometry = ST_MakeValid(geometry) WHERE ST_IsValid(geometry) <> 1;"
+  UPDATE regioni_clean SET geometry = MakeValid(geometry) WHERE ST_IsValid(geometry) <> 1;"
 fi
 
 # svuota tabella output
