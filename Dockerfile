@@ -4,7 +4,7 @@ RUN apt-get update
 RUN apt-get install -y \
     gdal-bin \
     sqlite3 \
-    libsqlite3-mod-spatialite \
+    #libsqlite3-mod-spatialite \
     libsqlite3-dev \
     #liblwgeom-2.5-0 \
     python3-dev \
@@ -45,6 +45,8 @@ RUN cd /tmp/libspatialite-5.0.0-beta0 && \
 
 RUN /sbin/ldconfig -v
 
+RUN ln -s /usr/local/lib/mod_spatialite.so.7.1.0 /usr/lib/mod_spatialite.so
+
 RUN mkdir -p /app
 WORKDIR /app
 ADD requirements.txt /app
@@ -54,5 +56,4 @@ RUN pip install -r requirements.txt
 VOLUME ["/app"]
 
 #CMD ["python", "main.py"]
-CMD ["bash", "_utils/analisiGeometrie.sh"]
-#CMD ["ls", "/app"]
+CMD ["bash", "-c", "bash _utils/analisiGeometrie.sh $DIV"]
