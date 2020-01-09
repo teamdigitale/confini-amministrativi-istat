@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t italia-conf-amm-istat .
+docker build --target application -t italia-conf-amm-istat .

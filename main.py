@@ -1,4 +1,4 @@
-import os, json, re, topojson, geobuf
+import os, subprocess, json, re, topojson, geobuf
 from pathlib import Path
 from simpledbf import Dbf5
 import geopandas as gpd
@@ -19,20 +19,21 @@ with open("sources.json") as f:
     ## Trasforma la lista di divisioni amministrative (comuni, province, ecc.) in un dizionario indicizzato
     sources["ontopia"]["divisions"] = { division["name"]: division for division in sources["ontopia"].get("divisions",[]) }
 
-# ISTAT - Unità territoriali
+# ISTAT - Unità territoriali originali
 print("+++ ISTAT +++")
 ## Ciclo su tutte le risorse ISTAT
 for source in sources["istat"][0:2]:
 
     print("Processing %s..." % source["name"])
 
-    # SHP - Shapefile
+    # ZIP - Zip of original shapefile
     ## Cartella di output
-    output_shp = Path(source["name"], "shp")
+    output_zip = Path(source["name"], "zip")
     ## Se non esiste...
-    if not output_shp.exists():
+    if not output_zip.exists():
+        print("-- zip")
         ## ... la crea
-        output_shp.mkdir(parents=True, exist_ok=True) 
+        output_zip.mkdir(parents=True, exist_ok=True)
         ## Scarico il file dal sito ISTAT
         with urlopen(source["url"]) as res:
             ## Lo leggo come archivio zip
@@ -49,17 +50,85 @@ for source in sources["istat"][0:2]:
                         zip_info.filename = zip_info.filename.replace(division["dirname"]+"/", division["name"]+"/").replace(division["filename"]+".", division["name"]+".")
                     ## Estraggo file e cartelle con un percorso non vuoto
                     if zip_info.filename:
-                        zfile.extract(zip_info, output_shp)
+                        zfile.extract(zip_info, output_zip)
+
+    # SHP - Corrected shapefile
+    ## Cartella di output
+    output_shp = Path(source["name"], "shp")
+    ## Se non esiste...
+    if not output_shp.exists():
+        print("-- shp")
+        ## ... la crea
+        output_shp.mkdir(parents=True, exist_ok=True)
+        ## Ciclo su ogni suddivisione amministrativa
+        for division in source["divisions"]:
+            ## Creazione cartella
+            output_div = Path(output_shp, division)
+            output_div.mkdir(parents=True, exist_ok=True)
+            ## Database spaziale temporaneo
+            output_sqlite = output_div.with_suffix('.sqlite')
+            ## Crea il db sqlite e poi lo inizializza come db spaziale
+            subprocess.run([
+                "sqlite3",
+                output_sqlite,
+                "\n".join([
+                    "SELECT load_extension('mod_spatialite');",
+                    "SELECT InitSpatialMetadata(1);"
+                ])
+            ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            ## Analisi dello shp originale
+            subprocess.run([
+                "sqlite3",
+                output_sqlite,
+                "\n".join([
+                    "SELECT load_extension('mod_spatialite');",
+                    #"-- importa shp come tabella virtuale",
+                    "CREATE VIRTUAL TABLE \"%s\" USING VirtualShape('%s', UTF-8, 32632);" % (division, Path(output_zip, division, division)),
+                    #"-- crea tabella con output check geometrico",
+                    "CREATE TABLE \"%s_check\" AS SELECT PKUID,GEOS_GetLastWarningMsg() msg,ST_AsText(GEOS_GetCriticalPointFromMsg()) punto FROM \"%s\" WHERE ST_IsValid(geometry) <> 1;" % (division, division)
+                ])
+            ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            ## Conteggio degli errori rilevati
+            errori = subprocess.check_output([
+                "sqlite3",
+                output_sqlite,
+                "\n".join([
+                    "SELECT count(*) FROM \"%s_check\"" % division
+                ])
+            ], stderr=subprocess.DEVNULL)
+            ## Se ci sono errori crea nuova tabella con geometrie corrette
+            print("Errori %s: %d geometrie corrette" % (division, int(errori)))
+            if int(errori) > 0:
+                subprocess.run([
+                    "sqlite3",
+                    output_sqlite,
+                    "\n".join([
+                        "SELECT load_extension('mod_spatialite');",
+                        "CREATE table \"%s_clean\" AS SELECT * FROM \"%s\";" % (division, division),
+                        "SELECT RecoverGeometryColumn('%s_clean','geometry',32632,'MULTIPOLYGON','XY');" % division,
+                        "UPDATE \"%s_clean\" SET geometry = MakeValid(geometry) WHERE ST_IsValid(geometry) <> 1;" % division
+                    ])
+                ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            ## Creazione shapefile con geometrie corrette
+            subprocess.run([
+                "ogr2ogr",
+                Path(output_div, division).with_suffix(".shp"),
+                output_sqlite,
+                "%s_clean" % division
+            ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            ## Pulizia file temporanei
+            os.remove(output_sqlite)
 
     # CSV - Comma Separated Values
     ## Cartella di output
     output_csv = Path(source["name"], "csv")
     ## Se non esiste...
     if not output_csv.exists():
+        print("-- csv")
         ## ... la crea
         output_csv.mkdir(parents=True, exist_ok=True)
         ## Ciclo su tutti i file dbf degli shapefile disponibili
-        for dbf_filename in output_shp.glob("**/*.dbf"):
+        for dbf_filename in output_zip.glob("**/*.dbf"):
             ## File di output (CSV)
             csv_filename = Path(output_csv, *dbf_filename.parts[2:]).with_suffix('.csv')
             ## Creo le eventuali sotto cartelle
@@ -99,6 +168,7 @@ for source in sources["istat"][0:2]:
         output_json = Path(source["name"], "json")
         ## Se non esiste...
         if not output_json.exists():
+            print("-- json")
             ## ... la crea
             output_json.mkdir(parents=True, exist_ok=True)
             ## Ciclo su tutti i file csv
@@ -136,6 +206,7 @@ for source in sources["istat"][0:2]:
         geojson_filename = Path(output_geojson, *shp_filename.parts[2:]).with_suffix('.json')
         ## Se non esiste...
         if not geojson_filename.exists():
+            print("-- geojson")
             ## ... ne creo il percorso
             geojson_filename.parent.mkdir(parents=True, exist_ok=True)
             ## Converto in GEOJSON e salvo il file
@@ -146,6 +217,7 @@ for source in sources["istat"][0:2]:
         geopkg_filename = Path(output_geopkg, *shp_filename.parts[2:]).with_suffix('.gpkg')
         ## Se non esiste...
         if not geopkg_filename.exists():
+            print("-- geopkg")
             ## ... ne creo il percorso
             geopkg_filename.parent.mkdir(parents=True, exist_ok=True)
             ## Converto in GEOJSON e salvo il file
@@ -153,22 +225,24 @@ for source in sources["istat"][0:2]:
 
         # Topojson - https://github.com/topojson/topojson
         ## File di output
-        #topojson_filename = Path(output_topojson, *shp_filename.parts[2:]).with_suffix('.json')
+        topojson_filename = Path(output_topojson, *shp_filename.parts[2:]).with_suffix('.json')
         ## Se non esiste...
-        #if not topojson_filename.exists():
+        if not topojson_filename.exists():
+            print("-- topojson")
             ## ... ne creo il percorso
-        #    topojson_filename.parent.mkdir(parents=True, exist_ok=True)
+            topojson_filename.parent.mkdir(parents=True, exist_ok=True)
             ## Carico e converto il GEOJSON in TOPOJSON
-        #    tj = topojson.Topology(gdf, prequantize=False, topology=True)
+            tj = topojson.Topology(gdf, prequantize=False, topology=True)
             ## Salvo il file
-        #    with open(topojson_filename, 'w') as f:
-        #        f.write(tj.to_json())
+            with open(topojson_filename, 'w') as f:
+                f.write(tj.to_json())
 
         # Geobuf - https://github.com/pygeobuf/pygeobuf
         ## File di output
         #geobuf_filename = Path(output_geobuf, *shp_filename.parts[2:]).with_suffix('.pbf')
         ## Se non esiste...
         #if not geobuf_filename.exists() and geojson_filename.exists():
+        #    print("-- geobuf")
             ## ... ne creo il percorso
         #    geobuf_filename.parent.mkdir(parents=True, exist_ok=True)
             ## Carico il GEOJSON e lo converto in GEOBUF
