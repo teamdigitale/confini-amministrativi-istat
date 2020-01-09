@@ -20,9 +20,7 @@ RUN apt-get install -y \
     #m4 \
     libtool
 
-ADD _vendor/ /tmp
-
-#ADD https://git.osgeo.org/gitea/rttopo/librttopo/archive/master.tar.gz /tmp
+ADD https://git.osgeo.org/gitea/rttopo/librttopo/archive/master.tar.gz /tmp
 RUN tar zxf /tmp/master.tar.gz -C /tmp && rm /tmp/master.tar.gz
 RUN cd /tmp/librttopo && \
     ./autogen.sh && \
@@ -31,14 +29,14 @@ RUN cd /tmp/librttopo && \
     make check && \
     make install
 
-#ADD https://www.gaia-gis.it/gaia-sins/freexl-1.0.5.tar.gz /tmp
+ADD https://www.gaia-gis.it/gaia-sins/freexl-1.0.5.tar.gz /tmp
 RUN tar zxf /tmp/freexl-1.0.5.tar.gz -C /tmp && rm /tmp/freexl-1.0.5.tar.gz
 RUN cd /tmp/freexl-1.0.5 && \
     ./configure && \
     make && \
     make install
 
-#ADD http://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.0-beta0.tar.gz /tmp
+ADD http://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.0-beta0.tar.gz /tmp
 RUN tar zxf /tmp/libspatialite-5.0.0-beta0.tar.gz -C /tmp && rm /tmp/libspatialite-5.0.0-beta0.tar.gz
 RUN cd /tmp/libspatialite-5.0.0-beta0 && \
     ./configure --enable-rttopo=yes --enable-gcp=yes && \
@@ -60,3 +58,4 @@ ADD main.py /app
 VOLUME ["/app"]
 
 CMD ["python", "main.py"]
+
