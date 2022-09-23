@@ -24,7 +24,7 @@ pandas==0.25.3
 pbr==5.4.4
 pipenv-to-requirements==0.8.2
 pipenv==2018.11.26
-protobuf==3.11.1
+protobuf==3.18.3
 pyproj==2.4.2.post1
 python-dateutil==2.8.1
 pytz==2019.3
